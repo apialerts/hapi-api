@@ -11,6 +11,8 @@ import (
 	"hapi/internal/util"
 )
 
+// Export Receives endpoints from the app and temporarily saves them to the database.
+// Returns an import code that can be used on another device
 func Export(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req requests.ExportRequest

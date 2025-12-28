@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// Health basic health check that hits the database and returns the status
 func Health(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var value string

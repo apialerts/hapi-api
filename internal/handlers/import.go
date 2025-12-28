@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// Import uses the import code provided by /export to download the exported endpoints from a Hapi app instance.
+// The export is deleted on a successful import
 func Import(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		code := r.PathValue("code")

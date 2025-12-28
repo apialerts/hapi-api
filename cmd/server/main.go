@@ -22,6 +22,7 @@ func main() {
 	mux.HandleFunc("POST /export", handlers.Export(database))
 	mux.HandleFunc("GET /import/{code}", handlers.Import(database))
 	mux.HandleFunc("GET /health", handlers.Health(database))
+	mux.HandleFunc("GET /tasks/cleanup", handlers.CleanupExpired(database))
 
 	notFoundHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		webserver.RespondHeader(w, http.StatusNotFound)
